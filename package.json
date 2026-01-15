@@ -17,9 +17,8 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/module.d.ts",
-      "import": "./dist/module.mjs",
-      "require": "./dist/module.cjs"
+      "types": "./dist/module.d.mts",
+      "import": "./dist/module.mjs"
     },
     "./runtime": {
       "types": "./dist/runtime/index.d.ts",
@@ -27,8 +26,8 @@
       "require": "./dist/runtime/index.js"
     }
   },
-  "main": "./dist/module.cjs",
-  "types": "./dist/module.d.ts",
+  "main": "./dist/module.mjs",
+  "types": "./dist/module.d.mts",
   "files": [
     "dist"
   ],
@@ -43,25 +42,26 @@
     "test": "vitest run",
     "test:watch": "vitest watch",
     "test:types": "vue-tsc --noEmit && cd playground && vue-tsc --noEmit",
-    "verify": "npm run dev:prepare && npm run lint && npm run test && npm run typecheck"
+    "verify": "npm run dev:prepare && npm run prepack && npm run lint && npm run test && npm run typecheck"
   },
   "dependencies": {
-    "@nuxt/kit": "^3.17.5"
+    "@nuxt/kit": "^4.2.2"
   },
   "devDependencies": {
-    "@nuxt/devtools": "^2.5.0",
-    "@nuxt/eslint-config": "^1.4.1",
-    "@nuxt/module-builder": "^0.8.4",
-    "@nuxt/schema": "^3.17.5",
-    "@nuxt/test-utils": "^3.19.1",
-    "@types/node": "^22.15.30",
-    "changelogen": "^0.6.1",
-    "eslint": "^9.28.0",
-    "nuxt": "^3.17.5",
+    "@nuxt/content": "^3.10.0",
+    "@nuxt/devtools": "^3.1.1",
+    "@nuxt/eslint-config": "^1.12.1",
+    "@nuxt/module-builder": "^1.0.2",
+    "@nuxt/schema": "^4.2.2",
+    "@nuxt/test-utils": "^3.23.0",
+    "@types/node": "^25.0.7",
+    "changelogen": "^0.6.2",
+    "eslint": "^9.39.2",
+    "nuxt": "^4.2.2",
     "nuxt-llms": "link:",
-    "typescript": "~5.6.3",
-    "vitest": "^3.2.2",
-    "vue-tsc": "^2.2.10"
+    "typescript": "~5.9.3",
+    "vitest": "^4.0.17",
+    "vue-tsc": "^3.2.2"
   },
-  "packageManager": "pnpm@10.6.5"
+  "packageManager": "pnpm@10.28.0"
 }

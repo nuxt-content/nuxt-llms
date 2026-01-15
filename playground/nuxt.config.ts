@@ -1,6 +1,10 @@
 export default defineNuxtConfig({
-  modules: ['../src/module'],
+  modules: ['@nuxt/content', 'nuxt-llms'],
   devtools: { enabled: true },
+
+  content: {
+    experimental: { sqliteConnector: 'native' },
+  },
 
   compatibilityDate: '2025-02-20',
 
