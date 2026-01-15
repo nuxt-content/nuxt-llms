@@ -63,5 +63,14 @@
     "vitest": "^4.0.17",
     "vue-tsc": "^3.2.2"
   },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore(release): release v${version}"
+    },
+    "github": {
+      "release": true,
+      "releaseName": "v${version}"
+    }
+  },
   "packageManager": "pnpm@10.28.0"
 }
