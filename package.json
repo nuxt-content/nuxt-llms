@@ -1,6 +1,6 @@
 {
   "name": "nuxt-llms",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Generate llms.txt documentation for your Nuxt application",
   "repository": {
     "type": "git",
