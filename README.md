@@ -269,5 +269,5 @@ Copyright (c) NuxtLabs
 [license-src]: https://img.shields.io/npm/l/nuxt-llms.svg?style=flat&colorA=020420&colorB=00DC82
 [license-href]: https://npmjs.com/package/nuxt-llms
 
-[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
+[nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt
 [nuxt-href]: https://nuxt.com
