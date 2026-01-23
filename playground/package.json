@@ -9,6 +9,6 @@
   },
   "dependencies": {
     "better-sqlite3": "^12.6.0",
-    "nuxt": "^4.2.2"
+    "nuxt": "^4.3.0"
   }
 }
