@@ -48,20 +48,20 @@
     "@nuxt/kit": "^4.2.2"
   },
   "devDependencies": {
-    "@nuxt/content": "^3.10.0",
+    "@nuxt/content": "^3.11.0",
     "@nuxt/devtools": "^3.1.1",
-    "@nuxt/eslint-config": "^1.12.1",
+    "@nuxt/eslint-config": "^1.13.0",
     "@nuxt/module-builder": "^1.0.2",
     "@nuxt/schema": "^4.2.2",
     "@nuxt/test-utils": "^3.23.0",
-    "@types/node": "^25.0.7",
+    "@types/node": "^25.1.0",
     "eslint": "^9.39.2",
     "nuxt": "^4.2.2",
     "nuxt-llms": "link:",
-    "release-it": "^19.2.3",
+    "release-it": "^19.2.4",
     "typescript": "~5.9.3",
-    "vitest": "^4.0.17",
-    "vue-tsc": "^3.2.2"
+    "vitest": "^4.0.18",
+    "vue-tsc": "^3.2.4"
   },
   "release-it": {
     "git": {
@@ -72,5 +72,5 @@
       "releaseName": "v${version}"
     }
   },
-  "packageManager": "pnpm@10.28.0"
+  "packageManager": "pnpm@10.28.2"
 }
