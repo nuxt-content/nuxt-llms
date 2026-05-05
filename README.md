@@ -18,6 +18,7 @@ Nuxt LLMs automatically generates [`llms.txt` markdown documentation](https://ll
 - Generates & prerenders `/llms.txt` automatically
 - Generate & prerenders `/llms-full.txt` when enabled
 - Customizable sections directly from your `nuxt.config.ts`
+- `useLlmsAlternate` composable to advertise per-page markdown alternates (RFC 8288)
 - Integrates with Nuxt modules and your application via the runtime hooks system
 
 ## Quick Setup
@@ -119,6 +120,32 @@ export default defineNuxtConfig({
   },
 })
 ```
+
+## Per-page markdown discovery
+
+`/llms.txt` advertises your site at the global level, but agents crawling individual pages have no standard way to know that a markdown counterpart exists. The `useLlmsAlternate` composable solves this by emitting two discovery hints per [RFC 8288](https://www.rfc-editor.org/rfc/rfc8288):
+
+- `<link rel="alternate" type="text/markdown" href="...">` in the document `<head>`
+- `Link: <...>; rel="alternate"; type="text/markdown"` HTTP response header
+
+Agents can read the `Link` header from a `HEAD` request — without parsing HTML — and switch to the markdown URL for ingestion.
+
+```vue
+<!-- app/pages/blog/[slug].vue -->
+<script setup lang="ts">
+const route = useRoute()
+useLlmsAlternate(`/raw/blog/${route.params.slug}.md`)
+</script>
+```
+
+The composable accepts a string, a `ref`, or a getter. Falsy values are ignored, so it is safe to call before async data resolves:
+
+```ts
+const { data: post } = await useAsyncData(/* ... */)
+useLlmsAlternate(() => post.value?.markdownUrl)
+```
+
+This pairs naturally with `@nuxt/content`'s `/raw/<path>.md` endpoint, but works with any markdown URL — including endpoints you serve yourself.
 
 ## Extending the documentation using hooks
 
