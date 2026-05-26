@@ -12,9 +12,7 @@ export default eventHandler(async (event) => {
   await useNitroApp().hooks.callHook('llms:generate', event, llms)
   await llmsHooks.callHook('generate', event, llms)
 
-  const document = [
-    `# ${llms.title || 'Documentation'}`,
-  ]
+  const document = [`# ${llms.title || 'Documentation'}`]
 
   if (llms.description) {
     document.push(`> ${llms.description}`)
@@ -26,19 +24,18 @@ export default eventHandler(async (event) => {
       document.push(section.description)
     }
     document.push(
-      section.links?.map((link) => {
-        return link.description
-          ? `- [${link.title}](${link.href}): ${link.description}`
-          : `- [${link.title}](${link.href})`
-      }).join('\n') || '',
+      section.links
+        ?.map((link) => {
+          return link.description
+            ? `- [${link.title}](${link.href}): ${link.description}`
+            : `- [${link.title}](${link.href})`
+        })
+        .join('\n') || '',
     )
   }
 
   if (options.notes && options.notes.length) {
-    document.push(
-      '## Notes',
-      (options.notes || []).map(note => `- ${note}`).join('\n'),
-    )
+    document.push('## Notes', (options.notes || []).map((note) => `- ${note}`).join('\n'))
   }
 
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')

@@ -9,7 +9,7 @@ import { useNitroApp } from '#imports'
  * @deprecated Custom hooks are deprecated in favor of NitroRuntimeHooks.
  */
 export interface LLMSHooks {
-  'generate': (event: H3Event, options: ModuleOptions) => void
+  generate: (event: H3Event, options: ModuleOptions) => void
   'generate:full': (event: H3Event, options: ModuleOptions, contents: string[]) => void
 }
 
@@ -21,10 +21,14 @@ export const llmsHooks = createHooks<LLMSHooks>()
 llmsHooks.beforeEach(() => {
   // @ts-expect-error - `_hooks` is private
   const hooks = Object.values(llmsHooks._hooks || {})
-  const hasRegisteredHook = hooks.some(hooksList => Array.isArray(hooksList) && hooksList.length > 0)
+  const hasRegisteredHook = hooks.some(
+    (hooksList) => Array.isArray(hooksList) && hooksList.length > 0,
+  )
 
   if (hasRegisteredHook) {
-    console.warn('[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook(\'llms:generate\', (event, options) => {})` instead')
+    console.warn(
+      "[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook('llms:generate', (event, options) => {})` instead",
+    )
   }
 })
 
