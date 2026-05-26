@@ -1,0 +1,15 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "vue"],
+  "categories": {
+    "correctness": "error"
+  },
+  "ignorePatterns": [
+    "dist",
+    ".nuxt",
+    ".output",
+    "node_modules",
+    "playground/.nuxt",
+    "test/fixtures/**/.nuxt"
+  ]
+}
