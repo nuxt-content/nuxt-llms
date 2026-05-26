@@ -8,7 +8,7 @@
     "generate": "nuxi generate"
   },
   "dependencies": {
-    "better-sqlite3": "^12.6.0",
-    "nuxt": "^4.2.2"
+    "better-sqlite3": "^12.10.0",
+    "nuxt": "^4.4.6"
   }
 }
