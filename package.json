@@ -55,7 +55,7 @@
     "@nuxt/schema": "^4.4.6",
     "@nuxt/test-utils": "^4.0.3",
     "@types/node": "^25.9.1",
-    "eslint": "^9.39.2",
+    "eslint": "^10.4.0",
     "nuxt": "^4.4.6",
     "nuxt-llms": "link:",
     "release-it": "^19.2.3",
