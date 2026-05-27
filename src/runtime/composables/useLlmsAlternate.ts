@@ -19,9 +19,7 @@ import { useHead, useRequestEvent } from '#imports'
  * Accepts a string, ref, or getter. Falsy values are ignored, so it is safe to
  * call before async data has resolved.
  */
-export function useLlmsAlternate(
-  href: MaybeRefOrGetter<string | null | undefined>,
-): void {
+export function useLlmsAlternate(href: MaybeRefOrGetter<string | null | undefined>): void {
   const resolved = computed(() => toValue(href) || null)
 
   useHead({

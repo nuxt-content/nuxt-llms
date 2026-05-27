@@ -1,0 +1,15 @@
+shamefullyHoist: true
+strictPeerDependencies: false
+
+allowBuilds:
+  "@parcel/watcher": true
+  esbuild: true
+  unrs-resolver: true
+
+minimumReleaseAgeExclude:
+  - "@vue/language-core@3.3.2"
+  - vue-tsc@3.3.2
+  - "@oxfmt/*"
+  - "@oxlint/*"
+  - oxfmt@0.52.0
+  - oxlint@1.67.0

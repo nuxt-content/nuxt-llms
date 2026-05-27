@@ -1,4 +1,12 @@
-import { defineNuxtModule, createResolver, addServerHandler, addPrerenderRoutes, addServerImports, addImports, useLogger } from '@nuxt/kit'
+import {
+  defineNuxtModule,
+  createResolver,
+  addServerHandler,
+  addPrerenderRoutes,
+  addServerImports,
+  addImports,
+  useLogger,
+} from '@nuxt/kit'
 import { version } from '../package.json'
 import type { ModuleOptions } from './runtime/types'
 
@@ -21,13 +29,13 @@ export default defineNuxtModule<ModuleOptions>({
       from: resolve('./runtime/composables/useLlmsAlternate'),
     })
 
-    const llmsConfig = nuxt.options.runtimeConfig.llms = {
+    const llmsConfig = (nuxt.options.runtimeConfig.llms = {
       domain: options.domain,
       title: options.title,
       description: options.description,
       notes: options.notes || [],
       sections: options.sections || [],
-    }
+    })
 
     if (!options.domain) {
       logger.warn('nuxt-llms require a domain to be set. `llms.domain` is missing.')
@@ -35,7 +43,10 @@ export default defineNuxtModule<ModuleOptions>({
     }
 
     addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/server/utils/hooks') }])
-    addServerHandler({ route: '/llms.txt', handler: resolve('./runtime/server/routes/llms.txt.get') })
+    addServerHandler({
+      route: '/llms.txt',
+      handler: resolve('./runtime/server/routes/llms.txt.get'),
+    })
     addPrerenderRoutes('/llms.txt')
 
     if (options.full) {
@@ -49,7 +60,10 @@ export default defineNuxtModule<ModuleOptions>({
           },
         ],
       })
-      addServerHandler({ route: '/llms-full.txt', handler: resolve('./runtime/server/routes/llms-full.txt.get') })
+      addServerHandler({
+        route: '/llms-full.txt',
+        handler: resolve('./runtime/server/routes/llms-full.txt.get'),
+      })
       addPrerenderRoutes('/llms-full.txt')
     }
   },
