@@ -4,6 +4,7 @@ import {
   addServerHandler,
   addPrerenderRoutes,
   addServerImports,
+  addImports,
   useLogger,
 } from '@nuxt/kit'
 import { version } from '../package.json'
@@ -22,6 +23,11 @@ export default defineNuxtModule<ModuleOptions>({
   setup(options, nuxt) {
     const logger = useLogger('nuxt-llms')
     const { resolve } = createResolver(import.meta.url)
+
+    addImports({
+      name: 'useLlmsAlternate',
+      from: resolve('./runtime/composables/useLlmsAlternate'),
+    })
 
     const llmsConfig = (nuxt.options.runtimeConfig.llms = {
       domain: options.domain,

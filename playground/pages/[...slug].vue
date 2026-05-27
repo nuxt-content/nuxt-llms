@@ -7,6 +7,11 @@ const { data } = await useAsyncData(
     return await queryCollection('content').path(route.path).first()
   },
 )
+
+useLlmsAlternate(() => {
+  const path = data.value?.path
+  return path && path !== '/' ? `/raw${path}.md` : null
+})
 </script>
 
 <template>
