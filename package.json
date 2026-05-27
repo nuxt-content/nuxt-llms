@@ -60,7 +60,7 @@
     "nuxt-llms": "link:",
     "oxfmt": "^0.52.0",
     "oxlint": "^1.67.0",
-    "release-it": "^19.2.3",
+    "release-it": "^19.2.4",
     "typescript": "~6.0.3",
     "vitest": "^4.1.7",
     "vue-tsc": "^3.3.2"
