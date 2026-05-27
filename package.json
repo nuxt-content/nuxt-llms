@@ -37,6 +37,7 @@
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
     "release": "npm run lint && npm run test && npm run prepack && release-it",
+    "lint:fix": "oxlint --fix && oxfmt src test playground",
     "lint": "oxlint && oxfmt --check src test playground",
     "format": "oxlint --fix && oxfmt src test playground",
     "typecheck": "nuxi typecheck",
@@ -60,7 +61,7 @@
     "oxfmt": "^0.52.0",
     "oxlint": "^1.67.0",
     "release-it": "^19.2.3",
-    "typescript": "~5.9.3",
+    "typescript": "~6.0.3",
     "vitest": "^4.1.7",
     "vue-tsc": "^3.3.2"
   },
