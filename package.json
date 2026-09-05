@@ -47,13 +47,13 @@
     "verify": "npm run dev:prepare && npm run prepack && npm run lint && npm run test && npm run typecheck"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.4.6"
+    "@nuxt/kit": "^4.5.2"
   },
   "devDependencies": {
     "@nuxt/content": "^3.14.0",
     "@nuxt/devtools": "^3.2.4",
     "@nuxt/module-builder": "^1.0.2",
-    "@nuxt/schema": "^4.4.6",
+    "@nuxt/schema": "^4.5.2",
     "@nuxt/test-utils": "^4.0.3",
     "@types/node": "^25.9.1",
     "nuxt": "^4.4.6",
