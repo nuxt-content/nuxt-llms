@@ -18,7 +18,9 @@ export default defineNuxtModule<ModuleOptions>({
     version,
     docs: 'https://github.com/nuxtlabs/nuxt-llms',
   },
-  defaults: {},
+  defaults: {
+    prerender: true,
+  },
   setup(options, nuxt) {
     const logger = useLogger('nuxt-llms')
     const { resolve } = createResolver(import.meta.url)
@@ -41,7 +43,9 @@ export default defineNuxtModule<ModuleOptions>({
       route: '/llms.txt',
       handler: resolve('./runtime/server/routes/llms.txt.get'),
     })
-    addPrerenderRoutes('/llms.txt')
+    if (options.prerender !== false) {
+      addPrerenderRoutes('/llms.txt')
+    }
 
     if (options.full) {
       llmsConfig.sections.unshift({
@@ -58,7 +62,9 @@ export default defineNuxtModule<ModuleOptions>({
         route: '/llms-full.txt',
         handler: resolve('./runtime/server/routes/llms-full.txt.get'),
       })
-      addPrerenderRoutes('/llms-full.txt')
+      if (options.prerender !== false) {
+        addPrerenderRoutes('/llms-full.txt')
+      }
     }
   },
 })
