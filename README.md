@@ -87,6 +87,7 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
 - `full`: The `llms-full.txt` configuration. Setting this option will enable the `llms-full.txt` route.
   - `title`: The title of the llms-full documentation
   - `description`: The description of the llms-full documentation
+- `prerender`: Whether to prerender `/llms.txt` (and `/llms-full.txt` when `full` is set) at build time. Defaults to `true`. Set it to `false` to serve them dynamically instead, for example when caching them with ISR.
 
 ## Documentation Formats
 

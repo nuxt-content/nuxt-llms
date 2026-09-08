@@ -33,4 +33,10 @@ export interface ModuleOptions {
   title?: string
   description?: string
   notes?: string[]
+  /**
+   * Prerender `/llms.txt` and `/llms-full.txt` at build time.
+   * Disable to serve them dynamically, for example with ISR.
+   * @default true
+   */
+  prerender?: boolean
 }
