@@ -1,9 +1,17 @@
 import type { H3Event } from 'h3'
+import type { RequestEvent } from 'nuxt/schema'
 
 declare module 'nitropack/types' {
   interface NitroRuntimeHooks {
     'llms:generate': (event: H3Event, options: ModuleOptions) => void
     'llms:generate:full': (event: H3Event, options: ModuleOptions, contents: string[]) => void
+  }
+}
+
+declare module 'nuxt/schema' {
+  interface NuxtServerHooks {
+    'llms:generate': (event: RequestEvent, options: ModuleOptions) => void
+    'llms:generate:full': (event: RequestEvent, options: ModuleOptions, contents: string[]) => void
   }
 }
 

@@ -1,1 +1,1 @@
-export * from './server/utils/hooks'
+export * from './server/utils/hooks.legacy'

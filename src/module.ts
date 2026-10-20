@@ -38,10 +38,21 @@ export default defineNuxtModule<ModuleOptions>({
       return
     }
 
-    addServerImports([{ name: 'llmsHooks', from: resolve('./runtime/server/utils/hooks') }])
+    addServerImports([
+      {
+        name: 'llmsHooks',
+        from: {
+          nuxt: resolve('./runtime/server/utils/hooks'),
+          nitro2: resolve('./runtime/server/utils/hooks.legacy'),
+        },
+      },
+    ])
     addServerHandler({
       route: '/llms.txt',
-      handler: resolve('./runtime/server/routes/llms.txt.get'),
+      handler: {
+        nuxt: resolve('./runtime/server/routes/llms.txt.get'),
+        nitro2: resolve('./runtime/server/routes/llms.txt.get.legacy'),
+      },
     })
     if (options.prerender !== false) {
       addPrerenderRoutes('/llms.txt')
@@ -60,7 +71,10 @@ export default defineNuxtModule<ModuleOptions>({
       })
       addServerHandler({
         route: '/llms-full.txt',
-        handler: resolve('./runtime/server/routes/llms-full.txt.get'),
+        handler: {
+          nuxt: resolve('./runtime/server/routes/llms-full.txt.get'),
+          nitro2: resolve('./runtime/server/routes/llms-full.txt.get.legacy'),
+        },
       })
       if (options.prerender !== false) {
         addPrerenderRoutes('/llms-full.txt')

@@ -1,17 +1,16 @@
-import { eventHandler, setHeader } from 'h3'
+import { defineEventHandler, useRuntimeConfig, useServerHooks } from 'nuxt/server'
 import type { ModuleOptions } from 'nuxt-llms'
-import { llmsHooks } from 'nuxt-llms/runtime'
-import { useRuntimeConfig, useNitroApp } from 'nitropack/runtime'
+import { llmsHooks } from '../utils/hooks'
 
-export default eventHandler(async (event) => {
-  const options = useRuntimeConfig(event).llms as ModuleOptions
+export default defineEventHandler(async (event) => {
+  const options = useRuntimeConfig().llms as ModuleOptions
 
   const contents = [] as string[]
   const llms: ModuleOptions = JSON.parse(JSON.stringify(options))
 
-  await useNitroApp().hooks.callHook('llms:generate:full', event, llms, contents)
+  await useServerHooks().callHook('llms:generate:full', event, llms, contents)
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
-  setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
+  event.res.headers.set('Content-Type', 'text/plain; charset=utf-8')
   return contents.join('\n\n')
 })

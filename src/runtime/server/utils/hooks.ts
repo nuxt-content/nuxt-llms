@@ -1,19 +1,18 @@
 import { createHooks } from 'hookable'
-import type { H3Event } from 'h3'
-import type { NitroRuntimeHooks } from 'nitropack/types'
+import { useServerHooks } from 'nuxt/server'
+import type { NuxtServerHooks, RequestEvent } from 'nuxt/server'
 import type { ModuleOptions } from 'nuxt-llms'
-import { useNitroApp } from 'nitropack/runtime'
 
 /**
- * @deprecated Custom hooks are deprecated in favor of NitroRuntimeHooks.
+ * @deprecated Custom hooks are deprecated in favor of NuxtServerHooks.
  */
 export interface LLMSHooks {
-  generate: (event: H3Event, options: ModuleOptions) => void
-  'generate:full': (event: H3Event, options: ModuleOptions, contents: string[]) => void
+  generate: (event: RequestEvent, options: ModuleOptions) => void
+  'generate:full': (event: RequestEvent, options: ModuleOptions, contents: string[]) => void
 }
 
 /**
- * @deprecated Custom hooks are deprecated in favor of NitroRuntimeHooks.
+ * @deprecated Custom hooks are deprecated in favor of NuxtServerHooks.
  */
 export const llmsHooks = createHooks<LLMSHooks>()
 
@@ -26,7 +25,7 @@ llmsHooks.beforeEach(() => {
 
   if (hasRegisteredHook) {
     console.warn(
-      "[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useNitroApp().hooks.hook('llms:generate', (event, options) => {})` instead",
+      "[nuxt-llms] `llmsHooks` are deprecated and will be removed in future versions. Use `useServerHooks().hook('llms:generate', (event, options) => {})` instead",
     )
   }
 })
@@ -34,17 +33,17 @@ llmsHooks.beforeEach(() => {
 /**
  * Run a callback when LLMs is being generated.
  *
- * @deprecated Use `useNitroApp().hooks.hook('llms:generate', (event, options) => {})` instead
+ * @deprecated Use `useServerHooks().hook('llms:generate', (event, options) => {})` instead
  */
-export function onLLMsGenerate(cb: NitroRuntimeHooks['llms:generate']) {
-  return useNitroApp().hooks.hook('llms:generate', cb)
+export function onLLMsGenerate(cb: NuxtServerHooks['llms:generate']) {
+  return useServerHooks().hook('llms:generate', cb)
 }
 
 /**
  * Run a callback when Full LLMs is being generated.
  *
- * @deprecated Use `useNitroApp().hooks.hook('llms:generate:full', (event, options, contents) => {})` instead
+ * @deprecated Use `useServerHooks().hook('llms:generate:full', (event, options, contents) => {})` instead
  */
-export function onLLMsGenerateFull(cb: NitroRuntimeHooks['llms:generate:full']) {
-  return useNitroApp().hooks.hook('llms:generate:full', cb)
+export function onLLMsGenerateFull(cb: NuxtServerHooks['llms:generate:full']) {
+  return useServerHooks().hook('llms:generate:full', cb)
 }
