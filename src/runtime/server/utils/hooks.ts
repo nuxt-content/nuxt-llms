@@ -2,8 +2,7 @@ import { createHooks } from 'hookable'
 import type { H3Event } from 'h3'
 import type { NitroRuntimeHooks } from 'nitropack/types'
 import type { ModuleOptions } from 'nuxt-llms'
-// @ts-expect-error - useNitroApp is not typed
-import { useNitroApp } from '#imports'
+import { useNitroApp } from 'nitropack/runtime'
 
 /**
  * @deprecated Custom hooks are deprecated in favor of NitroRuntimeHooks.
