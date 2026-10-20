@@ -1,5 +1,15 @@
 import type { H3Event } from 'h3'
-import type { RequestEvent } from 'nuxt/schema'
+
+/**
+ * The request event `nuxt/server` passes to hooks on Nuxt 5. Declared here since
+ * `nuxt/schema` only exports `RequestEvent` from Nuxt 4.6.
+ */
+export interface LLMsRequestEvent {
+  readonly req: Request
+  url: URL
+  readonly res: { status?: number; statusText?: string; readonly headers: Headers }
+  readonly context: object
+}
 
 declare module 'nitropack/types' {
   interface NitroRuntimeHooks {
@@ -10,8 +20,12 @@ declare module 'nitropack/types' {
 
 declare module 'nuxt/schema' {
   interface NuxtServerHooks {
-    'llms:generate': (event: RequestEvent, options: ModuleOptions) => void
-    'llms:generate:full': (event: RequestEvent, options: ModuleOptions, contents: string[]) => void
+    'llms:generate': (event: LLMsRequestEvent, options: ModuleOptions) => void
+    'llms:generate:full': (
+      event: LLMsRequestEvent,
+      options: ModuleOptions,
+      contents: string[],
+    ) => void
   }
 }
 
