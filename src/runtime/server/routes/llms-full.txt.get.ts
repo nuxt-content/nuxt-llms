@@ -1,8 +1,7 @@
 import { eventHandler, setHeader } from 'h3'
 import type { ModuleOptions } from 'nuxt-llms'
 import { llmsHooks } from 'nuxt-llms/runtime'
-// @ts-expect-error - useNitroApp is not typed
-import { useRuntimeConfig, useNitroApp } from '#imports'
+import { useRuntimeConfig, useNitroApp } from 'nitropack/runtime'
 
 export default eventHandler(async (event) => {
   const options = useRuntimeConfig(event).llms as ModuleOptions
