@@ -1,6 +1,5 @@
 import { createHooks } from 'hookable'
-import { useServerHooks } from 'nuxt/server'
-import type { NuxtServerHooks, RequestEvent } from 'nuxt/server'
+import type { RequestEvent } from 'nuxt/server'
 import type { ModuleOptions } from 'nuxt-llms'
 
 /**
@@ -29,21 +28,3 @@ llmsHooks.beforeEach(() => {
     )
   }
 })
-
-/**
- * Run a callback when LLMs is being generated.
- *
- * @deprecated Use `useServerHooks().hook('llms:generate', (event, options) => {})` instead
- */
-export function onLLMsGenerate(cb: NuxtServerHooks['llms:generate']) {
-  return useServerHooks().hook('llms:generate', cb)
-}
-
-/**
- * Run a callback when Full LLMs is being generated.
- *
- * @deprecated Use `useServerHooks().hook('llms:generate:full', (event, options, contents) => {})` instead
- */
-export function onLLMsGenerateFull(cb: NuxtServerHooks['llms:generate:full']) {
-  return useServerHooks().hook('llms:generate:full', cb)
-}
