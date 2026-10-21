@@ -191,6 +191,8 @@ X-API-Key: <your-api-key>
 })
 ```
 
+On Nuxt 5, register the same hooks with `useServerHooks().hook()` from `nuxt/server`, which also types them.
+
 ### Using Hooks in Nuxt Modules
 
 If you're developing a Nuxt module that needs to extend the LLMs documentation:
