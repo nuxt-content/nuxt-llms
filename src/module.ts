@@ -25,6 +25,11 @@ export default defineNuxtModule<ModuleOptions>({
     const logger = useLogger('nuxt-llms')
     const { resolve } = createResolver(import.meta.url)
 
+    // Avoid `//` when `domain` is joined with a path, e.g. `https://example.com/`
+    if (options.domain) {
+      options.domain = options.domain.replace(/\/+$/, '')
+    }
+
     const llmsConfig = (nuxt.options.runtimeConfig.llms = {
       domain: options.domain,
       title: options.title,
