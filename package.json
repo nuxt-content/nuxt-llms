@@ -4,7 +4,7 @@
   "description": "Generate llms.txt documentation for your Nuxt application",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nuxtlabs/nuxt-llms.git"
+    "url": "git+https://github.com/nuxt-content/nuxt-llms.git"
   },
   "keywords": [
     "nuxt",
