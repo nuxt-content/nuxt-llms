@@ -1,6 +1,6 @@
 {
   "name": "nuxt-llms",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Generate llms.txt documentation for your Nuxt application",
   "repository": {
     "type": "git",
@@ -36,7 +36,6 @@
     "dev": "nuxi dev playground",
     "dev:build": "nuxi build playground",
     "dev:prepare": "nuxt-module-build build --stub && nuxt-module-build prepare && nuxi prepare playground",
-
     "lint:fix": "oxlint --fix && oxfmt src test playground",
     "lint": "oxlint && oxfmt --check src test playground",
     "format": "oxlint --fix && oxfmt src test playground",
@@ -64,6 +63,5 @@
     "vitest": "^5.0.5",
     "vue-tsc": "^3.3.13"
   },
-
   "packageManager": "pnpm@12.14.0"
 }
