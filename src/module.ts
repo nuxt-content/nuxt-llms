@@ -20,6 +20,7 @@ export default defineNuxtModule<ModuleOptions>({
   },
   defaults: {
     prerender: true,
+    bom: false,
   },
   setup(options, nuxt) {
     const logger = useLogger('nuxt-llms')
@@ -36,6 +37,7 @@ export default defineNuxtModule<ModuleOptions>({
       description: options.description,
       notes: options.notes || [],
       sections: options.sections || [],
+      bom: options.bom === true,
     })
 
     if (!options.domain) {

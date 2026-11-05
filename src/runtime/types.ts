@@ -61,4 +61,11 @@ export interface ModuleOptions {
    * @default true
    */
   prerender?: boolean
+  /**
+   * Prepend a UTF-8 byte-order mark (BOM) to `/llms.txt` and `/llms-full.txt`.
+   * Helps browsers detect the encoding of non-Latin content when the host
+   * serves `.txt` files without a charset.
+   * @default false
+   */
+  bom?: boolean
 }

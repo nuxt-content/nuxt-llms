@@ -37,5 +37,6 @@ export default defineEventHandler(async (event) => {
   }
 
   event.res.headers.set('Content-Type', 'text/plain; charset=utf-8')
-  return document.join('\n\n')
+  // Prepend the BOM last, so hooks never see it
+  return (options.bom ? '\uFEFF' : '') + document.join('\n\n')
 })

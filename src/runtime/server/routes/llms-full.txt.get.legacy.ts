@@ -13,5 +13,6 @@ export default eventHandler(async (event) => {
   await llmsHooks.callHook('generate:full', event, llms, contents)
 
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
-  return contents.join('\n\n')
+  // Prepend the BOM last, so hooks never see it
+  return (options.bom ? '\uFEFF' : '') + contents.join('\n\n')
 })
