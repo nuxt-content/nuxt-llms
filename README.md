@@ -88,6 +88,7 @@ That's it! You can visit `/llms.txt` to see the generated documentation ✨
   - `title`: The title of the llms-full documentation
   - `description`: The description of the llms-full documentation
 - `prerender`: Whether to prerender `/llms.txt` (and `/llms-full.txt` when `full` is set) at build time. Defaults to `true`. Set it to `false` to serve them dynamically instead, for example when caching them with ISR.
+- `bom`: Whether to prepend a UTF-8 byte-order mark (BOM) to `/llms.txt` and `/llms-full.txt`. Defaults to `false`. Enable it if your content uses non-Latin scripts (e.g. Cyrillic) and your host serves `.txt` files without a charset, which makes browsers display garbled text. The [llms.txt specification](https://llmstxt.org/) allows an optional BOM.
 
 ## Documentation Formats
 

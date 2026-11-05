@@ -38,5 +38,6 @@ export default eventHandler(async (event) => {
   }
 
   setHeader(event, 'Content-Type', 'text/plain; charset=utf-8')
-  return document.join('\n\n')
+  // Prepend the BOM last, so hooks never see it
+  return (options.bom ? '\uFEFF' : '') + document.join('\n\n')
 })

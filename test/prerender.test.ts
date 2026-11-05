@@ -17,4 +17,13 @@ describe('prerender disabled', async () => {
     const res = await fetch('/llms-full.txt')
     expect(res.status).toBe(200)
   })
+
+  it.each(['/llms.txt', '/llms-full.txt'])(
+    'does not prepend a BOM to %s by default',
+    async (path) => {
+      // Read raw bytes: `Response.text()` strips a leading BOM.
+      const bytes = new Uint8Array(await (await fetch(path)).arrayBuffer())
+      expect([...bytes.subarray(0, 3)]).not.toEqual([0xef, 0xbb, 0xbf])
+    },
+  )
 })
