@@ -46,16 +46,16 @@
     "verify": "npm run dev:prepare && npm run prepack && npm run lint && npm run test && npm run typecheck"
   },
   "dependencies": {
-    "@nuxt/kit": "^4.6.2"
+    "@nuxt/kit": "^4.6.3"
   },
   "devDependencies": {
     "@nuxt/content": "^3.16.2",
     "@nuxt/devtools": "^3.4.4",
     "@nuxt/module-builder": "^1.0.3",
-    "@nuxt/schema": "^4.6.2",
+    "@nuxt/schema": "^4.6.3",
     "@nuxt/test-utils": "^4.3.4",
     "@types/node": "^26.6.5",
-    "nuxt": "^4.6.2",
+    "nuxt": "^4.6.3",
     "nuxt-llms": "link:",
     "oxfmt": "^0.74.0",
     "oxlint": "^1.89.0",
