@@ -137,7 +137,7 @@ This hook is called for every request to `/llms.txt`. Use this hook to modify th
   - `options`: ModuleOptions - The module options that you can modify to add sections, links, etc.
 
 
-#### `llms:generate:llms-full(event, options, contents)`
+#### `llms:generate:full(event, options, contents)`
 
 This hook is called for every request to `/llms-full.txt`. It allows you to add custom content sections in any format.
 
@@ -153,7 +153,7 @@ Create a server plugin in your `server/plugins` directory:
 ```ts
 // server/plugins/llms.ts
 export default defineNitroPlugin((nitroApp) => {
-  // Method 1: Using the hooks directly
+  // Add sections to llms.txt
   nitroApp.hooks.hook('llms:generate', (event, options) => {
     // Add a new section to llms.txt
     options.sections.push({
@@ -169,7 +169,7 @@ export default defineNitroPlugin((nitroApp) => {
     })
   })
 
-  // Method 2: Using the helper function
+  // Add content to llms-full.txt
   nitroApp.hooks.hook('llms:generate:full', (event, options, contents) => {
     // Add detailed documentation to llms-full.txt
     contents.push(`## API Authentication
