@@ -53,15 +53,15 @@
     "@nuxt/devtools": "^3.4.4",
     "@nuxt/module-builder": "^1.0.3",
     "@nuxt/schema": "^4.6.4",
-    "@nuxt/test-utils": "^4.3.4",
+    "@nuxt/test-utils": "^4.4.0",
     "@types/node": "^26.6.6",
     "nuxt": "^4.6.4",
     "nuxt-llms": "link:",
-    "oxfmt": "^0.76.0",
-    "oxlint": "^1.91.0",
+    "oxfmt": "^0.78.0",
+    "oxlint": "^1.93.0",
     "typescript": "~6.0.3",
     "vitest": "^5.1.0",
     "vue-tsc": "^3.3.14"
   },
-  "packageManager": "pnpm@12.16.1"
+  "packageManager": "pnpm@12.18.0"
 }
