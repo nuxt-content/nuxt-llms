@@ -50,7 +50,7 @@
   },
   "devDependencies": {
     "@nuxt/content": "^3.17.0",
-    "@nuxt/devtools": "^3.4.4",
+    "@nuxt/devtools": "^4.2.2",
     "@nuxt/module-builder": "^1.0.4",
     "@nuxt/schema": "^4.6.4",
     "@nuxt/test-utils": "^4.4.0",
